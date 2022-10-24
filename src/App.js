@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import AddForm from "./components/AddForm"
+import ListDisplay from "./components/ListDisplay"
+import Header from "./components/Header"
+import axios from "axios"
+import {useState, useEffect} from "react"
+import "./App.css"
 
-function App() {
+const App = () => {
+  const [players, setPlayers] = useState([])
+
+const getPlayers = () => {
+  axios.get("http://localhost:4123/api/player")
+  .then(res => setPlayers(res.data))
+}
+useEffect(() => {
+  getPlayers()
+}, [])
+console.log(players)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <AddForm setPlayers = {setPlayers}/>
+      <ListDisplay players = {players} setPlayers = {setPlayers}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

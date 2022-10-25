@@ -1,8 +1,8 @@
 const ListItem = (props) => {
   return (
-    <div className="">
+    <div className="list-item">
       <h1>{props.player.name}</h1>
-      <p>{props.player.position}</p>
+      <h2>{props.player.position}</h2>
       <button onClick={() => props.removePlayer(props.player.id)}>
         Remove
       </button>

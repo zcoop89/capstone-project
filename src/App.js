@@ -18,7 +18,7 @@ useEffect(() => {
 console.log(players)
 
   return (
-    <div>
+    <div className="App">
       <Header />
       <AddForm setPlayers = {setPlayers}/>
       <ListDisplay players = {players} setPlayers = {setPlayers}/>

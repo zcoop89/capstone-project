@@ -12,12 +12,17 @@ function AddForm(props) {
   };
 
   return (
-    <div className="App">
+    <div className="player-selector">
       <input
-        placeholder="position"
+        className="position-box"
+        placeholder="Enter a Position"
         onChange={(e) => setPosition(e.target.value)}
       />
-      <input placeholder="name" onChange={(e) => setName(e.target.value)} />
+      <input
+        className="name-box"
+        placeholder="Enter a Name"
+        onChange={(e) => setName(e.target.value)}
+      />
       <button onClick={() => addPlayer()}>Add Player</button>
     </div>
   );
